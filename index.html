@@ -1500,85 +1500,134 @@
         <div class="section-label">Le parcours</div>
         <h2 class="section-title">La <em>boucle</em> du BDL</h2>
         <div class="gold-line" style="margin:0 auto 24px;"></div>
-        <p style="color:var(--charcoal-mid); max-width:600px; margin:0 auto; font-size:0.98rem; line-height:1.8;">
-          Une boucle de ~6 km tracée au départ et à l'arrivée de la même ligne, à compléter dans l'heure. Les corridors naturels du Luxembourg offrent un terrain à la fois accessible et technique.
+        <p style="color:var(--charcoal-mid); max-width:640px; margin:0 auto; font-size:0.98rem; line-height:1.8;">
+          Une boucle officielle de <strong>5,46 km</strong> et <strong>205 m D+</strong> tracée au cœur des sous-bois et sentiers naturels luxembourgeois, au départ et à l'arrivée de la même ligne.
         </p>
       </div>
 
       <!-- Map placeholder -->
-      <div class="course-map-wrapper fade-up stagger-1" style="height: 420px;">
-        <span class="course-map-label">🗺 Tracé de la boucle</span>
+      <div class="course-map-wrapper fade-up stagger-1" style="height: 440px;">
+        <span class="course-map-label">🗺 Tracé GPS officiel de la boucle</span>
         <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
           <!-- Decorative background -->
-          <svg width="100%" height="100%" viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+          <svg width="100%" height="100%" viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
             <defs>
               <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#E8E4D9;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#F0EDE4;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#EAE6DC;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#F2EFE8;stop-opacity:1" />
               </linearGradient>
               <filter id="shadow">
                 <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#B9975B" flood-opacity="0.3"/>
               </filter>
             </defs>
             <!-- Background -->
-            <rect width="1000" height="420" fill="url(#bgGrad)"/>
+            <rect width="1000" height="440" fill="url(#bgGrad)"/>
             <!-- Grid lines -->
             <g stroke="#D4C9A8" stroke-width="0.5" opacity="0.6">
-              <line x1="0" y1="84" x2="1000" y2="84"/>
-              <line x1="0" y1="168" x2="1000" y2="168"/>
-              <line x1="0" y1="252" x2="1000" y2="252"/>
-              <line x1="0" y1="336" x2="1000" y2="336"/>
-              <line x1="200" y1="0" x2="200" y2="420"/>
-              <line x1="400" y1="0" x2="400" y2="420"/>
-              <line x1="600" y1="0" x2="600" y2="420"/>
-              <line x1="800" y1="0" x2="800" y2="420"/>
+              <line x1="0" y1="88" x2="1000" y2="88"/>
+              <line x1="0" y1="176" x2="1000" y2="176"/>
+              <line x1="0" y1="264" x2="1000" y2="264"/>
+              <line x1="0" y1="352" x2="1000" y2="352"/>
+              <line x1="200" y1="0" x2="200" y2="440"/>
+              <line x1="400" y1="0" x2="400" y2="440"/>
+              <line x1="600" y1="0" x2="600" y2="440"/>
+              <line x1="800" y1="0" x2="800" y2="440"/>
             </g>
-            <!-- Terrain fills -->
-            <ellipse cx="300" cy="200" rx="180" ry="90" fill="#C8DDB5" opacity="0.4"/>
-            <ellipse cx="650" cy="160" rx="140" ry="70" fill="#C8DDB5" opacity="0.35"/>
-            <ellipse cx="750" cy="310" rx="120" ry="55" fill="#C8DDB5" opacity="0.3"/>
-            <!-- Tracé réel GPS -->
-            <polyline 
-              points="62,47 138,84 213,116 207,128 232,185 258,189 197,195 30,198 42,257 110,289 48,343 32,369 133,400 251,400 438,383 522,350 650,327 754,317 781,310 869,279 900,286 970,279 968,263 907,220 861,180 883,105 858,28 796,20 794,29 840,62 831,118 799,162 681,168 569,168 499,161 456,161 418,187 365,185 295,143 269,106 244,124 199,102 83,65 62,47"
-              fill="rgba(185,151,91,0.08)" stroke="#B9975B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
 
-            <!-- Start/Finish -->
-            <g transform="translate(62,47)">
-              <circle r="14" fill="#B9975B"/>
-              <text x="0" y="5" text-anchor="middle" fill="white" font-size="12" font-family="Montserrat,sans-serif" font-weight="700">S</text>
-              <circle r="18" fill="none" stroke="#B9975B" stroke-width="2" opacity="0.4"/>
+            <!-- Terrain accents -->
+            <ellipse cx="480" cy="220" rx="90" ry="170" fill="#C8DDB5" opacity="0.25"/>
+            <ellipse cx="530" cy="80" rx="60" ry="60" fill="#C8DDB5" opacity="0.3"/>
+            <ellipse cx="480" cy="340" rx="70" ry="60" fill="#C8DDB5" opacity="0.25"/>
+
+            <!-- Tracé réel GPS issu du fichier GPX -->
+            <polyline 
+              points="484.4,371.3 480.4,363.8 476.7,356.1 474.5,348.4 481.9,344.0 488.3,339.1 495.4,334.5 498.1,329.5 495.3,322.6 502.2,315.8 502.5,309.6 500.0,302.2 497.3,295.3 493.9,287.9 491.2,281.3 487.7,273.7 491.4,265.0 494.0,257.3 495.2,249.6 495.4,241.1 495.5,233.5 494.4,225.6 492.8,217.8 491.0,209.5 488.9,201.8 485.9,193.9 483.7,185.7 481.0,178.9 478.4,170.9 476.3,163.4 473.2,155.3 480.9,148.9 488.0,145.0 487.2,139.3 483.8,132.5 479.9,125.5 476.0,117.5 473.8,110.4 473.2,102.0 473.0,93.9 474.1,86.3 482.7,84.8 491.2,84.7 498.5,82.8 505.8,78.8 510.4,74.7 515.6,67.4 518.8,59.9 524.3,52.5 530.8,47.3 537.7,42.7 540.2,44.8 542.3,48.1 543.5,49.4 545.1,52.0 543.0,49.4 541.7,46.3 540.0,43.4 544.0,40.5 539.5,43.0 541.4,45.5 543.1,48.2 544.0,50.2 544.9,52.3 543.2,49.0 541.3,46.2 539.6,43.2 543.9,40.5 539.5,43.2 541.4,45.9 542.6,48.7 543.8,50.2 546.0,54.5 547.9,60.6 547.6,56.9 549.1,62.6 549.9,65.1 550.0,65.5 548.8,62.3 546.4,55.8 543.7,50.6 542.4,47.7 540.2,44.3 543.0,42.4 539.6,43.2 541.1,45.7 542.2,48.4 543.7,50.1 543.7,50.6 542.1,47.8 540.4,45.3 541.7,42.1 541.4,41.3 539.6,43.0 541.2,47.2 542.8,49.3 544.1,51.3 547.1,56.9 549.2,62.7 549.9,65.9 549.7,65.6 548.8,62.1 546.0,55.6 543.8,50.4 542.2,47.2 540.1,44.0 534.9,46.1 529.1,50.1 523.9,55.7 521.6,61.8 518.6,68.5 515.8,75.2 512.4,81.7 509.4,87.7 505.2,93.3 499.4,97.8 492.1,100.5 484.2,100.1 476.3,99.3 474.4,106.3 470.4,112.3 465.5,118.4 457.8,120.5 450.6,122.2 451.7,127.9 456.0,134.4 461.5,140.6 466.2,146.5 470.8,153.0 475.2,159.6 477.9,166.9 479.7,174.6 481.5,182.6 483.6,190.3 486.0,197.5 488.6,204.7 491.0,212.4 493.3,219.2 494.5,226.9 493.7,234.7 493.3,242.7 492.0,251.0 490.8,259.0 489.7,265.7 492.1,273.2 495.2,281.1 497.7,288.2 500.5,295.0 499.8,301.7 502.6,311.0 500.8,319.0 497.6,325.0 499.1,333.2 492.4,339.4 485.5,344.0 478.7,348.4 476.5,354.1 479.1,361.2 476.4,368.6 469.7,372.9 470.4,380.0"
+              fill="rgba(185,151,91,0.08)" stroke="#B9975B" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round" filter="url(#shadow)"/>
+
+            <!-- Kilometer markers along the track -->
+            <g font-family="Montserrat,sans-serif" font-size="9" font-weight="700">
+              <!-- KM 1 -->
+              <circle cx="487.7" cy="198.3" r="10" fill="#FFFFFF" stroke="#B9975B" stroke-width="2"/>
+              <text x="487.7" y="201.3" text-anchor="middle" fill="#3A3A3A">1k</text>
+              <!-- KM 2 -->
+              <circle cx="527.9" cy="49.8" r="10" fill="#FFFFFF" stroke="#B9975B" stroke-width="2"/>
+              <text x="527.9" y="52.8" text-anchor="middle" fill="#3A3A3A">2k</text>
+              <!-- KM 3 -->
+              <circle cx="539.5" cy="42.4" r="10" fill="#FFFFFF" stroke="#B9975B" stroke-width="2"/>
+              <text x="539.5" y="45.4" text-anchor="middle" fill="#3A3A3A">3k</text>
+              <!-- KM 4 -->
+              <circle cx="452.2" cy="128.5" r="10" fill="#FFFFFF" stroke="#B9975B" stroke-width="2"/>
+              <text x="452.2" y="131.5" text-anchor="middle" fill="#3A3A3A">4k</text>
+              <!-- KM 5 -->
+              <circle cx="502.6" cy="311.0" r="10" fill="#FFFFFF" stroke="#B9975B" stroke-width="2"/>
+              <text x="502.6" y="314.0" text-anchor="middle" fill="#3A3A3A">5k</text>
             </g>
-            <!-- Point haut (alt max ~307m) -->
-            <g transform="translate(858,28)">
-              <circle r="8" fill="#B9975B"/>
-              <text x="10" y="-6" font-family="Montserrat,sans-serif" font-size="11" fill="#B9975B" font-weight="700">▲ 307m</text>
+
+            <!-- Start/Finish (D/A) -->
+            <g transform="translate(484.4,371.3)">
+              <circle r="15" fill="#B9975B"/>
+              <text x="0" y="4.5" text-anchor="middle" fill="white" font-size="10" font-family="Montserrat,sans-serif" font-weight="800">D/A</text>
+              <circle r="19" fill="none" stroke="#B9975B" stroke-width="2" opacity="0.4"/>
+            </g>
+
+            <!-- Point culminant (alt max 305m à km 0,4) -->
+            <g transform="translate(502.9,311.0)">
+              <rect x="12" y="-12" width="108" height="22" rx="3" fill="rgba(255,255,255,0.9)" stroke="#B9975B" stroke-width="1"/>
+              <text x="18" y="3" font-family="Montserrat,sans-serif" font-size="10" fill="#B9975B" font-weight="700">▲ Max 305m (km 0,4)</text>
+            </g>
+
+            <!-- Point bas (alt min 244m à km 3,0) -->
+            <g transform="translate(540.2,41.8)">
+              <rect x="-124" y="-12" width="112" height="22" rx="3" fill="rgba(255,255,255,0.9)" stroke="#3A3A3A" stroke-width="1"/>
+              <text x="-118" y="3" font-family="Montserrat,sans-serif" font-size="10" fill="#3A3A3A" font-weight="700">▼ Min 244m (km 3,0)</text>
+            </g>
+
+            <!-- Left Info Panel Overlay -->
+            <g transform="translate(36, 40)">
+              <rect width="210" height="135" rx="6" fill="rgba(255,255,255,0.92)" stroke="#D4C9A8" stroke-width="1"/>
+              <text x="16" y="24" font-family="Montserrat,sans-serif" font-size="11" font-weight="800" fill="#3A3A3A" letter-spacing="1">DÉTAILS DU PARCOURS</text>
+              <line x1="16" y1="32" x2="194" y2="32" stroke="#B9975B" stroke-width="1" opacity="0.4"/>
+              
+              <text x="16" y="52" font-family="Montserrat,sans-serif" font-size="9" fill="#8B7355" font-weight="600">DISTANCE OFFICIELLE</text>
+              <text x="16" y="68" font-family="Montserrat,sans-serif" font-size="14" fill="#B9975B" font-weight="800">5,46 km</text>
+
+              <text x="16" y="90" font-family="Montserrat,sans-serif" font-size="9" fill="#8B7355" font-weight="600">DÉNIVELÉ PAR TOUR</text>
+              <text x="16" y="106" font-family="Montserrat,sans-serif" font-size="14" fill="#3A3A3A" font-weight="800">+205 m D+</text>
+
+              <text x="16" y="122" font-family="Montserrat,sans-serif" font-size="8.5" fill="#5C5C5C">Altitude : 244 m à 305 m</text>
             </g>
 
             <!-- Scale -->
-            <g transform="translate(60, 390)">
+            <g transform="translate(36, 395)">
               <line x1="0" y1="0" x2="80" y2="0" stroke="#8B7355" stroke-width="2"/>
               <line x1="0" y1="-4" x2="0" y2="4" stroke="#8B7355" stroke-width="2"/>
               <line x1="80" y1="-4" x2="80" y2="4" stroke="#8B7355" stroke-width="2"/>
-              <text x="40" y="-6" text-anchor="middle" font-family="Montserrat" font-size="9" fill="#8B7355">1 km</text>
+              <text x="40" y="-6" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="9" fill="#8B7355" font-weight="600">500 m</text>
             </g>
 
             <!-- Compass -->
-            <g transform="translate(940, 60)">
-              <circle r="22" fill="rgba(255,255,255,0.8)" stroke="#D4C9A8" stroke-width="1"/>
-              <text x="0" y="-8" text-anchor="middle" font-family="Montserrat" font-size="11" fill="#B9975B" font-weight="700">N</text>
+            <g transform="translate(930, 60)">
+              <circle r="22" fill="rgba(255,255,255,0.85)" stroke="#D4C9A8" stroke-width="1"/>
+              <text x="0" y="-8" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="11" fill="#B9975B" font-weight="700">N</text>
               <line x1="0" y1="-14" x2="0" y2="4" stroke="#B9975B" stroke-width="2"/>
               <polygon points="0,-14 -4,0 0,-5 4,0" fill="#B9975B"/>
             </g>
           </svg>
-          <div style="position:absolute; bottom:16px; right:16px; background:rgba(255,255,255,0.9); border:1px solid var(--border); padding:10px 16px; border-radius:4px; font-size:0.72rem; color:var(--charcoal-mid); font-weight:600; letter-spacing:0.1em;">
-            ℹ️ Tracé indicatif — carte définitive à venir
+          <div style="position:absolute; bottom:16px; right:16px; display:flex; gap:10px; align-items:center;">
+            <div style="background:rgba(255,255,255,0.92); border:1px solid var(--border); padding:10px 16px; border-radius:4px; font-size:0.75rem; color:var(--charcoal-mid); font-weight:600; letter-spacing:0.05em;">
+              📍 Tracé officiel issu du fichier GPX · 5,46 km
+            </div>
+            <a href="parcours.gpx" download="Backyard_Luxembourg_5.46km.gpx" style="background:var(--gold); color:var(--white); padding:10px 16px; border-radius:4px; font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-decoration:none; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; box-shadow:0 4px 15px rgba(185,151,91,0.25);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Télécharger GPX
+            </a>
           </div>
         </div>
       </div>
 
       <!-- Elevation Profile -->
       <div class="elevation-wrapper fade-up stagger-2">
-        <div class="elevation-title">Profil altimétrique de la boucle</div>
+        <div class="elevation-title">Profil altimétrique de la boucle (Données GPX)</div>
         <div class="elevation-svg-wrap">
           <svg width="100%" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <defs>
@@ -1595,85 +1644,64 @@
 
             <!-- Y-axis grid -->
             <g stroke="#E8E0CF" stroke-width="1" opacity="0.8">
-              <line x1="60" y1="20" x2="980" y2="20"/>
-              <line x1="60" y1="60" x2="980" y2="60"/>
-              <line x1="60" y1="100" x2="980" y2="100"/>
-              <line x1="60" y1="140" x2="980" y2="140"/>
+              <line x1="60" y1="25" x2="980" y2="25"/>
+              <line x1="60" y1="68" x2="980" y2="68"/>
+              <line x1="60" y1="111" x2="980" y2="111"/>
+              <line x1="60" y1="154" x2="980" y2="154"/>
               <line x1="60" y1="180" x2="980" y2="180"/>
             </g>
 
             <!-- Y-axis labels -->
             <g font-family="Montserrat,sans-serif" font-size="10" fill="#8B7355" text-anchor="end">
-              <text x="52" y="24">307m</text>
-              <text x="52" y="64">296m</text>
-              <text x="52" y="104">285m</text>
-              <text x="52" y="144">273m</text>
-              <text x="52" y="184">261m</text>
+              <text x="52" y="29">310m</text>
+              <text x="52" y="72">290m</text>
+              <text x="52" y="115">270m</text>
+              <text x="52" y="158">250m</text>
+              <text x="52" y="184">240m</text>
             </g>
 
-            <!-- Elevation area fill — vraies données GPS -->
-            <path d="M 60 180
-              L 60 60.0 C 76 52.6 98 50.1 105 52.9 110 51.9 128 46.3 141 42.7
-              C 157 40.6 174 43.0 189 50.5 199 54.7 213 56.8 227 55.1
-              C 240 52.9 253 44.2 264 36.2 280 26.3 295 20.0 309 21.3
-              C 323 23.9 336 31.1 350 36.6 364 42.0 376 50.4 390 56.3
-              C 403 60.4 415 64.9 428 68.1 440 70.5 453 71.9 466 73.2
-              C 480 73.8 494 73.5 507 72.9 519 72.0 532 71.3 545 71.5
-              C 558 71.9 570 73.4 583 76.5 596 80.0 608 84.1 621 87.9
-              C 634 91.3 647 94.2 660 97.0 671 98.9 683 100.4 695 102.2
-              C 707 104.3 718 107.1 730 110.4 742 113.9 753 118.0 765 123.3
-              C 777 129.0 789 136.4 800 145.3 811 154.5 822 163.2 833 170.1
-              C 844 176.0 856 179.4 867 180.0 878 179.0 892 174.5 906 168.2
-              C 920 161.0 934 150.8 948 139.5 961 128.5 974 118.4 980 112.0
-              L 980 180 Z"
-                  fill="url(#elevGrad)"/>
+            <!-- Elevation area fill — vraies données GPX -->
+            <path d="M 60 180 L 60.0 53.6 L 69.3 52.8 L 78.6 51.2 L 87.9 48.6 L 97.2 44.6 L 106.5 41.0 L 115.8 38.4 L 125.1 36.8 L 134.3 37.2 L 143.6 38.9 L 152.9 40.0 L 162.2 40.7 L 171.5 40.9 L 180.8 41.0 L 190.1 41.2 L 199.4 42.6 L 208.7 45.7 L 218.0 49.4 L 227.3 52.8 L 236.6 56.0 L 245.9 59.0 L 255.2 61.2 L 264.4 63.2 L 273.7 65.5 L 283.0 68.7 L 292.3 71.6 L 301.6 74.1 L 310.9 78.4 L 320.2 83.2 L 329.5 84.5 L 338.8 84.1 L 348.1 86.6 L 357.4 94.7 L 366.7 103.9 L 376.0 113.2 L 385.3 123.0 L 394.5 130.6 L 403.8 139.7 L 413.1 135.6 L 422.4 115.5 L 431.7 149.1 L 441.0 142.7 L 450.3 108.7 L 459.6 137.2 L 468.9 150.5 L 478.2 128.7 L 487.5 105.1 L 496.8 103.6 L 506.1 92.9 L 515.4 109.0 L 524.6 139.9 L 533.9 160.6 L 543.2 135.8 L 552.5 147.6 L 561.8 163.9 L 571.1 158.4 L 580.4 127.1 L 589.7 111.1 L 599.0 114.7 L 608.3 133.5 L 617.6 161.2 L 626.9 158.9 L 636.2 146.3 L 645.5 133.3 L 654.7 123.0 L 664.0 115.0 L 673.3 110.0 L 682.6 107.2 L 691.9 106.0 L 701.2 104.4 L 710.5 103.5 L 719.8 104.1 L 729.1 103.3 L 738.4 99.9 L 747.7 96.8 L 757.0 95.0 L 766.3 93.7 L 775.6 92.1 L 784.8 90.2 L 794.1 88.1 L 803.4 85.9 L 812.7 83.1 L 822.0 79.1 L 831.3 75.5 L 840.6 73.5 L 849.9 72.5 L 859.2 71.7 L 868.5 69.3 L 877.8 65.8 L 887.1 64.9 L 896.4 65.9 L 905.7 66.0 L 914.9 64.8 L 924.2 64.1 L 933.5 64.4 L 942.8 64.8 L 952.1 64.4 L 961.4 63.7 L 970.7 63.8 L 980.0 64.4 L 980 180 Z" fill="url(#elevGrad)"/>
 
             <!-- Elevation line -->
-            <path d="M 60 60.0 C 76 52.6 98 50.1 105 52.9 110 51.9 128 46.3 141 42.7
-              C 157 40.6 174 43.0 189 50.5 199 54.7 213 56.8 227 55.1
-              C 240 52.9 253 44.2 264 36.2 280 26.3 295 20.0 309 21.3
-              C 323 23.9 336 31.1 350 36.6 364 42.0 376 50.4 390 56.3
-              C 403 60.4 415 64.9 428 68.1 440 70.5 453 71.9 466 73.2
-              C 480 73.8 494 73.5 507 72.9 519 72.0 532 71.3 545 71.5
-              C 558 71.9 570 73.4 583 76.5 596 80.0 608 84.1 621 87.9
-              C 634 91.3 647 94.2 660 97.0 671 98.9 683 100.4 695 102.2
-              C 707 104.3 718 107.1 730 110.4 742 113.9 753 118.0 765 123.3
-              C 777 129.0 789 136.4 800 145.3 811 154.5 822 163.2 833 170.1
-              C 844 176.0 856 179.4 867 180.0 878 179.0 892 174.5 906 168.2
-              C 920 161.0 934 150.8 948 139.5 961 128.5 974 118.4 980 112.0"
-                  fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 60.0 53.6 L 69.3 52.8 L 78.6 51.2 L 87.9 48.6 L 97.2 44.6 L 106.5 41.0 L 115.8 38.4 L 125.1 36.8 L 134.3 37.2 L 143.6 38.9 L 152.9 40.0 L 162.2 40.7 L 171.5 40.9 L 180.8 41.0 L 190.1 41.2 L 199.4 42.6 L 208.7 45.7 L 218.0 49.4 L 227.3 52.8 L 236.6 56.0 L 245.9 59.0 L 255.2 61.2 L 264.4 63.2 L 273.7 65.5 L 283.0 68.7 L 292.3 71.6 L 301.6 74.1 L 310.9 78.4 L 320.2 83.2 L 329.5 84.5 L 338.8 84.1 L 348.1 86.6 L 357.4 94.7 L 366.7 103.9 L 376.0 113.2 L 385.3 123.0 L 394.5 130.6 L 403.8 139.7 L 413.1 135.6 L 422.4 115.5 L 431.7 149.1 L 441.0 142.7 L 450.3 108.7 L 459.6 137.2 L 468.9 150.5 L 478.2 128.7 L 487.5 105.1 L 496.8 103.6 L 506.1 92.9 L 515.4 109.0 L 524.6 139.9 L 533.9 160.6 L 543.2 135.8 L 552.5 147.6 L 561.8 163.9 L 571.1 158.4 L 580.4 127.1 L 589.7 111.1 L 599.0 114.7 L 608.3 133.5 L 617.6 161.2 L 626.9 158.9 L 636.2 146.3 L 645.5 133.3 L 654.7 123.0 L 664.0 115.0 L 673.3 110.0 L 682.6 107.2 L 691.9 106.0 L 701.2 104.4 L 710.5 103.5 L 719.8 104.1 L 729.1 103.3 L 738.4 99.9 L 747.7 96.8 L 757.0 95.0 L 766.3 93.7 L 775.6 92.1 L 784.8 90.2 L 794.1 88.1 L 803.4 85.9 L 812.7 83.1 L 822.0 79.1 L 831.3 75.5 L 840.6 73.5 L 849.9 72.5 L 859.2 71.7 L 868.5 69.3 L 877.8 65.8 L 887.1 64.9 L 896.4 65.9 L 905.7 66.0 L 914.9 64.8 L 924.2 64.1 L 933.5 64.4 L 942.8 64.8 L 952.1 64.4 L 961.4 63.7 L 970.7 63.8 L 980.0 64.4" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 
-            <!-- Peak marker at ~1.8km (alt max 307m) -->
-            <g transform="translate(295,20)">
+            <!-- Peak marker at km 0,4 (alt max 305m) -->
+            <g transform="translate(128,37)">
               <line x1="0" y1="0" x2="0" y2="-18" stroke="#B9975B" stroke-width="1.5" stroke-dasharray="3,2"/>
-              <text x="4" y="-8" font-family="Montserrat,sans-serif" font-size="10" fill="#B9975B" font-weight="700">▲ 307m</text>
+              <text x="4" y="-8" font-family="Montserrat,sans-serif" font-size="10" fill="#B9975B" font-weight="700">▲ Max 305m (km 0,4)</text>
+            </g>
+
+            <!-- Valley marker at km 3,0 (alt min 244m) -->
+            <g transform="translate(565,165)">
+              <line x1="0" y1="0" x2="0" y2="16" stroke="#3A3A3A" stroke-width="1.5" stroke-dasharray="3,2"/>
+              <text x="4" y="24" font-family="Montserrat,sans-serif" font-size="10" fill="#3A3A3A" font-weight="700">▼ Min 244m (km 3,0)</text>
             </g>
 
             <!-- Start marker -->
-            <circle cx="60" cy="60" r="5" fill="#B9975B"/>
-            <text x="68" y="54" font-family="Montserrat,sans-serif" font-size="9" fill="#3A3A3A" font-weight="600">Départ 296m</text>
+            <circle cx="60" cy="54" r="5" fill="#B9975B"/>
+            <text x="68" y="48" font-family="Montserrat,sans-serif" font-size="9" fill="#3A3A3A" font-weight="600">Départ 297m</text>
 
             <!-- End marker -->
-            <circle cx="980" cy="112" r="5" fill="#B9975B"/>
-            <text x="860" y="106" font-family="Montserrat,sans-serif" font-size="9" fill="#3A3A3A" font-weight="600">Arrivée ~296m</text>
+            <circle cx="980" cy="64" r="5" fill="#B9975B"/>
+            <text x="880" y="58" font-family="Montserrat,sans-serif" font-size="9" fill="#3A3A3A" font-weight="600">Arrivée 292m</text>
 
             <!-- X-axis distance labels -->
             <g font-family="Montserrat,sans-serif" font-size="10" fill="#8B7355" text-anchor="middle">
               <text x="60" y="200">0 km</text>
-              <text x="193" y="200">1 km</text>
-              <text x="326" y="200">2 km</text>
-              <text x="459" y="200">3 km</text>
-              <text x="592" y="200">4 km</text>
-              <text x="725" y="200">5 km</text>
-              <text x="858" y="200">6 km</text>
-              <text x="980" y="200">7 km</text>
+              <text x="229" y="200">1 km</text>
+              <text x="397" y="200">2 km</text>
+              <text x="565" y="200">3 km</text>
+              <text x="734" y="200">4 km</text>
+              <text x="902" y="200">5 km</text>
+              <text x="980" y="200">5,46 km</text>
             </g>
 
             <!-- D+ indicator -->
-            <g transform="translate(810, 20)">
-              <rect x="0" y="0" width="155" height="38" rx="3" fill="rgba(185,151,91,0.12)" stroke="#B9975B" stroke-width="1"/>
-              <text x="12" y="14" font-family="Montserrat,sans-serif" font-size="9" fill="#8B7355" font-weight="600">DÉNIVELÉ +</text>
-              <text x="12" y="30" font-family="Montserrat,sans-serif" font-size="15" fill="#B9975B" font-weight="800">89 m D+  · 7,02 km</text>
+            <g transform="translate(790, 20)">
+              <rect x="0" y="0" width="175" height="38" rx="3" fill="rgba(185,151,91,0.12)" stroke="#B9975B" stroke-width="1"/>
+              <text x="12" y="14" font-family="Montserrat,sans-serif" font-size="9" fill="#8B7355" font-weight="600">DÉNIVELÉ + RÉEL GPX</text>
+              <text x="12" y="30" font-family="Montserrat,sans-serif" font-size="15" fill="#B9975B" font-weight="800">+205 m D+ · 5,46 km</text>
             </g>
           </svg>
         </div>
@@ -1682,15 +1710,15 @@
       <!-- Course stats -->
       <div class="course-stats-row">
         <div class="course-stat fade-up stagger-1">
-          <div class="course-stat-num">7,02<span class="unit"> km</span></div>
+          <div class="course-stat-num">5,46<span class="unit"> km</span></div>
           <div class="course-stat-label">Distance par boucle</div>
         </div>
         <div class="course-stat fade-up stagger-2">
-          <div class="course-stat-num">89<span class="unit"> m</span></div>
+          <div class="course-stat-num">205<span class="unit"> m</span></div>
           <div class="course-stat-label">Dénivelé positif / boucle</div>
         </div>
         <div class="course-stat fade-up stagger-3">
-          <div class="course-stat-num">261–307<span class="unit"> m</span></div>
+          <div class="course-stat-num">244–305<span class="unit"> m</span></div>
           <div class="course-stat-label">Altitude (min–max)</div>
         </div>
         <div class="course-stat fade-up stagger-4">
@@ -1880,8 +1908,8 @@
           <div style="display:flex; align-items:center; gap:14px; padding:14px 20px; background:var(--white); border:1px solid var(--border); border-radius:4px;">
             <div style="width:12px; height:12px; border-radius:50%; background:var(--charcoal); flex-shrink:0;"></div>
             <div>
-              <div style="font-size:0.75rem; font-weight:700; color:var(--charcoal); letter-spacing:0.1em; text-transform:uppercase;">12 Boucles max · 84,2 km</div>
-              <div style="font-size:0.8rem; color:var(--charcoal-mid);">1 068m D+ total si l'ensemble des 12 boucles est complété</div>
+              <div style="font-size:0.75rem; font-weight:700; color:var(--charcoal); letter-spacing:0.1em; text-transform:uppercase;">12 Boucles max · 65,5 km</div>
+              <div style="font-size:0.8rem; color:var(--charcoal-mid);">2 460m D+ total si l'ensemble des 12 boucles est complété</div>
             </div>
           </div>
           <div style="display:flex; align-items:center; gap:14px; padding:14px 20px; background:var(--gold-pale); border:1px solid var(--gold); border-radius:4px;">
@@ -2035,7 +2063,7 @@
             />
           </div>
           <div class="range-markers">
-            <span>1 boucle (7 km)</span>
+            <span>1 boucle (5,5 km)</span>
             <span>6 boucles (42 km)</span>
             <span>12 boucles (84 km ⚡)</span>
           </div>
@@ -2234,8 +2262,8 @@
     });
 
     // ── Logique du formulaire d'inscription & Curseur de pronostic ──
-    const KM_PER_LOOP = 7.02;
-    const DPLUS_PER_LOOP = 89;
+    const KM_PER_LOOP = 5.46;
+    const DPLUS_PER_LOOP = 205;
 
     function updatePronostic(val) {
       const loops = parseInt(val, 10);
@@ -2253,15 +2281,15 @@
 
       if (badgeEl) {
         if (loops <= 2) {
-          badgeEl.textContent = 'Découverte (~7–14 km)';
+          badgeEl.textContent = 'Découverte (~5–11 km)';
         } else if (loops <= 5) {
-          badgeEl.textContent = 'Format Semi-Trail (~21–35 km)';
+          badgeEl.textContent = 'Format Semi-Trail (~16–27 km)';
         } else if (loops <= 8) {
-          badgeEl.textContent = 'Format Marathon & Plus (~42–56 km)';
+          badgeEl.textContent = 'Format Marathon & Plus (~38–50 km)';
         } else if (loops <= 11) {
-          badgeEl.textContent = 'Ultra Défi (~63–77 km)';
+          badgeEl.textContent = 'Grand Défi Ultra (~55–60 km)';
         } else {
-          badgeEl.textContent = 'Finisher Ultime 12H (84,2 km ⚡)';
+          badgeEl.textContent = 'Finisher Ultime 12H (65,5 km ⚡)';
         }
       }
     }

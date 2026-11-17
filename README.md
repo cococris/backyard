@@ -9,8 +9,8 @@ Site web officiel de la première édition du **Backyard de Luxembourg**, organi
 ## ⏱ Le Format de Course (12 Heures)
 
 - **Créneau horaire** : De **09h00 à 21h00** (12 départs consécutifs, 1 départ chaque heure pile).
-- **La boucle** : **7,02 km** et **89 m D+** par tour.
-- **Distance maximale** : Jusqu'à **84,2 km** et **1 068 m D+** pour les finishers des 12 boucles.
+- **La boucle** : **5,46 km** et **205 m D+** par tour (tracé GPS officiel).
+- **Distance maximale** : Jusqu'à **65,5 km** et **2 460 m D+** pour les finishers des 12 boucles.
 - **Règle décisive (Boucle 12)** : À **20h00**, les survivants s'élancent en confrontation directe pour une **boucle de vitesse**. Le premier à franchir la ligne d'arrivée remporte l'épreuve !
 
 ---
