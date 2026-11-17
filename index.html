@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Backyard de Luxembourg – 12H Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* =====================================================
+       VARIABLES & RESET
+    ===================================================== */
+    :root {
+      --gold:        #B9975B;
+      --gold-light:  #D4B87A;
+      --gold-pale:   #F5EDD8;
+      --charcoal:    #3A3A3A;
+      --charcoal-mid:#5C5C5C;
+      --white:       #FFFFFF;
+      --off-white:   #FAFAF8;
+      --border:      #E8E0CF;
+      --shadow:      rgba(185,151,91,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--white);
+      color: var(--charcoal);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      box-shadow: 0 2px 20px var(--shadow);
+    }
+
+    .nav-logo img {
+      height: 42px;
+      object-fit: contain;
+      filter: drop-shadow(0 1px 4px rgba(185,151,91,0.15));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white) !important;
+      padding: 10px 22px !important;
+      border-radius: 2px;
+      transition: background 0.3s, transform 0.2s !important;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-cta:hover {
+      background: var(--charcoal) !important;
+      color: var(--white) !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--charcoal);
+      transition: 0.3s;
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+      padding-top: 72px;
+    }
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(135deg, var(--gold-pale) 0%, transparent 50%),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 40px,
+          rgba(185,151,91,0.04) 40px,
+          rgba(185,151,91,0.04) 41px
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 860px;
+      padding: 60px 24px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 36px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-logo {
+      width: min(340px, 75vw);
+      margin: 0 auto 40px;
+      display: block;
+      filter: drop-shadow(0 2px 12px rgba(185,151,91,0.25));
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span { color: var(--gold); }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+
+    .hero-date-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 2px;
+      margin-bottom: 48px;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(24px, 5vw, 60px);
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-value {
+      display: block;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--charcoal);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-stat-value span {
+      color: var(--gold);
+      font-size: 0.6em;
+    }
+
+    .hero-stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--charcoal-mid);
+      margin-top: 6px;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 60px;
+      background: var(--border);
+      align-self: center;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--white);
+      padding: 15px 36px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      border: 2px solid var(--gold);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--charcoal);
+      border-color: var(--charcoal);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--charcoal);
+      padding: 15px 36px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      border: 2px solid var(--charcoal);
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--charcoal);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll svg { width: 20px; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* =====================================================
+       SECTION SHARED
+    ===================================================== */
+    section { padding: clamp(60px, 10vw, 100px) 5%; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 32px; height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .gold-line {
+      width: 56px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      margin-bottom: 36px;
+    }
+
+    /* =====================================================
+       ASSOCIATION
+    ===================================================== */
+    #association {
+      background: var(--off-white);
+    }
+
+    .asso-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+    }
+
+    .asso-text p {
+      color: var(--charcoal-mid);
+      font-size: 0.98rem;
+      margin-bottom: 20px;
+      line-height: 1.85;
+    }
+
+    .asso-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .asso-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 22px;
+      text-align: center;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .asso-card:hover {
+      box-shadow: 0 8px 30px var(--shadow);
+      transform: translateY(-4px);
+    }
+
+    .asso-card-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .asso-card-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .asso-card-text {
+      font-size: 0.85rem;
+      color: var(--charcoal-mid);
+      line-height: 1.6;
+    }
+
+    .asso-btn-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 12px 22px;
+      background: var(--white);
+      color: #0a66c2;
+      border: 1.5px solid #0a66c2;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+
+    .asso-btn-linkedin:hover {
+      background: #0a66c2;
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(10,102,194,0.25);
+    }
+
+    .asso-btn-linkedin svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* =====================================================
+       COURSE / BOUCLE
+    ===================================================== */
+    #course {
+      background: var(--white);
+    }
+
+    .course-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .course-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .course-map-wrapper {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .course-map-label {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 2px;
+      z-index: 2;
+    }
+
+    /* SVG Elevation Profile */
+    .elevation-wrapper {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 32px;
+      margin-bottom: 48px;
+    }
+
+    .elevation-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .elevation-title::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--gold);
+    }
+
+    .elevation-svg-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .course-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .course-stat {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+
+    .course-stat:hover {
+      box-shadow: 0 6px 24px var(--shadow);
+    }
+
+    .course-stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .course-stat-num .unit {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .course-stat-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--charcoal-mid);
+      margin-top: 8px;
+    }
+
+    /* Loop visual */
+    .loop-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 48px;
+      padding: 40px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .loop-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* =====================================================
+       REGLES
+    ===================================================== */
+    #regles {
+      background: var(--charcoal);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #regles::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      border: 60px solid rgba(185,151,91,0.08);
+    }
+
+    #regles .section-label { color: var(--gold-light); }
+    #regles .section-label::before { background: var(--gold-light); }
+    #regles .section-title { color: var(--white); }
+    #regles .section-title em { color: var(--gold-light); }
+    #regles .gold-line { background: linear-gradient(90deg, var(--gold-light), transparent); }
+
+    .regles-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .regles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .regle-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(185,151,91,0.3);
+      border-radius: 4px;
+      padding: 32px 24px;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+      position: relative;
+    }
+
+    .regle-card:hover {
+      background: rgba(185,151,91,0.1);
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .regle-num {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: rgba(185,151,91,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .regle-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .regle-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.75;
+    }
+
+    /* departage */
+    .departage-box {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      border-radius: 6px;
+      padding: 48px 40px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .departage-left {
+      text-align: center;
+    }
+
+    .departage-icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .departage-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.3);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+    }
+
+    .departage-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .departage-text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.8;
+    }
+
+    .departage-text strong { color: var(--white); }
+
+    /* =====================================================
+       FORMAT 12H
+    ===================================================== */
+    #format {
+      background: var(--off-white);
+    }
+
+    .format-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px; top: 10px; bottom: 10px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), var(--gold-light), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -33px; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    .timeline-time {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .timeline-event {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--charcoal-mid);
+      line-height: 1.6;
+    }
+
+    .format-visual {
+      position: relative;
+    }
+
+    .clock-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .clock-ring {
+      position: relative;
+      width: 280px;
+      height: 280px;
+    }
+
+    /* =====================================================
+       INSCRIPTION / CTA SECTION
+    ===================================================== */
+    #inscription {
+      background: linear-gradient(135deg, var(--gold-pale) 0%, var(--white) 100%);
+      text-align: center;
+      position: relative;
+    }
+
+    .inscription-inner {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .inscription-inner .section-label { justify-content: center; }
+    .inscription-inner .section-label::before { display: none; }
+    .inscription-inner .section-title { text-align: center; }
+    .inscription-inner .gold-line { margin: 0 auto 28px; }
+
+    .inscription-inner > p {
+      font-size: 1rem;
+      color: var(--charcoal-mid);
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    /* =====================================================
+       MODAL OVERLAY / POPUP INSCRIPTION
+    ===================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(20, 20, 20, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-dialog {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 660px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: clamp(24px, 5vw, 40px);
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      transform: translateY(30px) scale(0.96);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: left;
+    }
+
+    .modal-backdrop.active .modal-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      background: var(--charcoal);
+      color: var(--white);
+      border-color: var(--charcoal);
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .modal-header .section-label {
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .modal-header .section-label::before {
+      display: none;
+    }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .modal-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .modal-subtitle {
+      font-size: 0.88rem;
+      color: var(--charcoal-mid);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .reg-form-card {
+      text-align: left;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+
+    .form-input {
+      padding: 14px 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      color: var(--charcoal);
+      background: var(--off-white);
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      transition: all 0.25s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(185,151,91,0.15);
+    }
+
+    /* Slider Container */
+    .slider-box {
+      background: var(--off-white);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .slider-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slider-badge {
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+    }
+
+    .slider-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .slider-stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 12px 8px;
+    }
+
+    .slider-stat-num {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      line-height: 1.1;
+    }
+
+    .slider-stat-num span {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .slider-stat-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--charcoal-mid);
+      margin-top: 4px;
+    }
+
+    /* Custom range input */
+    .range-wrap {
+      position: relative;
+      padding: 8px 0 4px;
+    }
+
+    .custom-range {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: #E8E0CF;
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      accent-color: var(--gold);
+      transition: background 0.2s;
+    }
+
+    .custom-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      cursor: grab;
+      transition: transform 0.15s, background-color 0.15s;
+    }
+
+    .custom-range::-webkit-slider-thumb:active {
+      cursor: grabbing;
+      transform: scale(1.15);
+      background: var(--charcoal);
+    }
+
+    .custom-range::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      cursor: grab;
+    }
+
+    .range-markers {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--charcoal-mid);
+    }
+
+    .form-btn-submit {
+      width: 100%;
+      padding: 16px 28px;
+      background: var(--gold);
+      color: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .form-btn-submit:hover {
+      background: var(--charcoal);
+      border-color: var(--charcoal);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .form-success {
+      display: none;
+      background: var(--white);
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(185,151,91,0.15);
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .success-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+
+    .success-msg {
+      font-size: 0.95rem;
+      color: var(--charcoal-mid);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .success-recap {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px;
+      display: inline-flex;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .success-recap-item {
+      text-align: center;
+    }
+
+    .success-recap-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    .success-recap-item span {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--charcoal-mid);
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.6);
+      padding: 48px 5% 32px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      margin-bottom: 20px;
+      opacity: 0.85;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.3s;
+    }
+
+    .footer-col ul li a:hover { color: var(--gold-light); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.78rem;
+    }
+
+    .footer-bottom span { color: var(--gold-light); }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        background: var(--white);
+        padding: 24px 5%;
+        border-bottom: 1px solid var(--border);
+        gap: 20px;
+      }
+
+      .asso-grid { grid-template-columns: 1fr; gap: 36px; }
+      .asso-cards { grid-template-columns: 1fr 1fr; }
+      .regles-grid { grid-template-columns: 1fr; }
+      .departage-box { grid-template-columns: 1fr; }
+      .format-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .course-stats-row { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { justify-content: center; text-align: center; }
+    }
+
+    @media (max-width: 540px) {
+      .asso-cards { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+      .hero-divider { display: none; }
+      .course-stats-row { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .slider-stats-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =====================================================
+       ANIMATIONS
+    ===================================================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===================================================
+       NAVBAR
+  =================================================== -->
+  <nav>
+    <a class="nav-logo" href="#hero">
+      <img src="logo.png" alt="Backyard de Luxembourg" />
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#association">L'Association</a></li>
+      <li><a href="#course">La Boucle</a></li>
+      <li><a href="#regles">Règles</a></li>
+      <li><a href="#format">Format 12H</a></li>
+      <li><button type="button" class="nav-cta" onclick="openRegisterModal(event)">S'inscrire</button></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===================================================
+       HERO
+  =================================================== -->
+  <section id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Édition inaugurale &bull; Luxembourg</div>
+      <img src="logo.png" alt="Backyard de Luxembourg" class="hero-logo" />
+
+      <p class="hero-subtitle">L'ultra-trail caritatif au cœur du Grand-Duché</p>
+      <div class="hero-date-badge">🗓&nbsp; Date à confirmer &nbsp;—&nbsp; Luxembourg</div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value">12<span>H</span></span>
+          <span class="hero-stat-label">Durée de l'épreuve</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">7<span>km</span></span>
+          <span class="hero-stat-label">Par boucle</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">1<span>H</span></span>
+          <span class="hero-stat-label">Par tour</span>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">∞</span>
+          <span class="hero-stat-label">Dépassement de soi</span>
+        </div>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="#course" class="btn-primary">
+          Découvrir la boucle
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#regles" class="btn-secondary">Voir les règles</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+      Défiler
+    </div>
+  </section>
+
+  <!-- ===================================================
+       ASSOCIATION
+  =================================================== -->
+  <section id="association">
+    <div class="asso-grid">
+      <div class="asso-text fade-up">
+        <div class="section-label">Association partenaire</div>
+        <h2 class="section-title">Courir pour <em>Hëllef Hëllefen</em><br/>au service du Grand-Duché</h2>
+        <div class="gold-line"></div>
+        <p>
+          Le <strong>Backyard de Luxembourg (BDL)</strong> associe le défi de l'ultra-endurance à un engagement solidaire fort. Chaque boucle validée et chaque heure passée sur le tracé permettent de soutenir concrètement <strong>Hëllef Hëllefen asbl</strong>, l'association caritative portée par les collaborateurs de la Banque de Luxembourg.
+        </p>
+        <p>
+          En luxembourgeois, <em>Hëllef Hëllefen</em> signifie littéralement <strong>« Aider à aider »</strong>. L'association mobilise l'énergie de ses bénévoles, organise des actions solidaires et collecte des dons pour financer et accompagner des projets humanitaires, médico-sociaux et d'entraide locale au Grand-Duché.
+        </p>
+        <p>
+          En prenant le départ, chaque coureuse et coureur donne un sens profond à sa foulée : vous repoussez vos limites personnelles tout en apportant une aide précieuse aux initiatives soutenues sur le terrain.
+        </p>
+        <div>
+          <a href="https://www.linkedin.com/showcase/hellef-hellefen/?originalSubdomain=lu" target="_blank" rel="noopener noreferrer" class="asso-btn-linkedin">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.64a1.68 1.68 0 0 0-1.7 1.68c0 .93.76 1.69 1.7 1.69s1.69-.76 1.69-1.69c0-.92-.76-1.68-1.69-1.68Z"/>
+            </svg>
+            Découvrir Hëllef Hëllefen sur LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="asso-cards fade-up stagger-2">
+        <div class="asso-card">
+          <div class="asso-card-icon">🤝</div>
+          <div class="asso-card-title">Hëllef Hëllefen asbl</div>
+          <div class="asso-card-text">L'initiative solidaire et philanthropique impulsée et animée avec cœur par les équipes de la Banque de Luxembourg</div>
+        </div>
+        <div class="asso-card">
+          <div class="asso-card-icon">❤️</div>
+          <div class="asso-card-title">100% Solidaire</div>
+          <div class="asso-card-text">Les fonds collectés lors du Backyard soutiennent des associations et des causes sociales au Luxembourg</div>
+        </div>
+        <div class="asso-card">
+          <div class="asso-card-icon">🏃</div>
+          <div class="asso-card-title">Dépassement & Impact</div>
+          <div class="asso-card-text">Chaque kilomètre et chaque tour d'horloge parcourus transforment l'effort sportif en action solidaire concrète</div>
+        </div>
+        <div class="asso-card">
+          <div class="asso-card-icon">✨</div>
+          <div class="asso-card-title">Esprit de communauté</div>
+          <div class="asso-card-text">L'essence du backyard : entraide, convivialité et énergie positive partagées entre sportifs et bénévoles</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       COURSE / BOUCLE
+  =================================================== -->
+  <section id="course">
+    <div class="course-inner">
+      <div class="course-header fade-up">
+        <div class="section-label">Le parcours</div>
+        <h2 class="section-title">La <em>boucle</em> du BDL</h2>
+        <div class="gold-line" style="margin:0 auto 24px;"></div>
+        <p style="color:var(--charcoal-mid); max-width:600px; margin:0 auto; font-size:0.98rem; line-height:1.8;">
+          Une boucle de ~6 km tracée au départ et à l'arrivée de la même ligne, à compléter dans l'heure. Les corridors naturels du Luxembourg offrent un terrain à la fois accessible et technique.
+        </p>
+      </div>
+
+      <!-- Map placeholder -->
+      <div class="course-map-wrapper fade-up stagger-1" style="height: 420px;">
+        <span class="course-map-label">🗺 Tracé de la boucle</span>
+        <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+          <!-- Decorative background -->
+          <svg width="100%" height="100%" viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;">
+            <defs>
+              <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#E8E4D9;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#F0EDE4;stop-opacity:1" />
+              </linearGradient>
+              <filter id="shadow">
+                <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#B9975B" flood-opacity="0.3"/>
+              </filter>
+            </defs>
+            <!-- Background -->
+            <rect width="1000" height="420" fill="url(#bgGrad)"/>
+            <!-- Grid lines -->
+            <g stroke="#D4C9A8" stroke-width="0.5" opacity="0.6">
+              <line x1="0" y1="84" x2="1000" y2="84"/>
+              <line x1="0" y1="168" x2="1000" y2="168"/>
+              <line x1="0" y1="252" x2="1000" y2="252"/>
+              <line x1="0" y1="336" x2="1000" y2="336"/>
+              <line x1="200" y1="0" x2="200" y2="420"/>
+              <line x1="400" y1="0" x2="400" y2="420"/>
+              <line x1="600" y1="0" x2="600" y2="420"/>
+              <line x1="800" y1="0" x2="800" y2="420"/>
+            </g>
+            <!-- Terrain fills -->
+            <ellipse cx="300" cy="200" rx="180" ry="90" fill="#C8DDB5" opacity="0.4"/>
+            <ellipse cx="650" cy="160" rx="140" ry="70" fill="#C8DDB5" opacity="0.35"/>
+            <ellipse cx="750" cy="310" rx="120" ry="55" fill="#C8DDB5" opacity="0.3"/>
+            <!-- Tracé réel GPS -->
+            <polyline 
+              points="62,47 138,84 213,116 207,128 232,185 258,189 197,195 30,198 42,257 110,289 48,343 32,369 133,400 251,400 438,383 522,350 650,327 754,317 781,310 869,279 900,286 970,279 968,263 907,220 861,180 883,105 858,28 796,20 794,29 840,62 831,118 799,162 681,168 569,168 499,161 456,161 418,187 365,185 295,143 269,106 244,124 199,102 83,65 62,47"
+              fill="rgba(185,151,91,0.08)" stroke="#B9975B" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+
+            <!-- Start/Finish -->
+            <g transform="translate(62,47)">
+              <circle r="14" fill="#B9975B"/>
+              <text x="0" y="5" text-anchor="middle" fill="white" font-size="12" font-family="Montserrat,sans-serif" font-weight="700">S</text>
+              <circle r="18" fill="none" stroke="#B9975B" stroke-width="2" opacity="0.4"/>
+            </g>
+            <!-- Point haut (alt max ~307m) -->
+            <g transform="translate(858,28)">
+              <circle r="8" fill="#B9975B"/>
+              <text x="10" y="-6" font-family="Montserrat,sans-serif" font-size="11" fill="#B9975B" font-weight="700">▲ 307m</text>
+            </g>
+
+            <!-- Scale -->
+            <g transform="translate(60, 390)">
+              <line x1="0" y1="0" x2="80" y2="0" stroke="#8B7355" stroke-width="2"/>
+              <line x1="0" y1="-4" x2="0" y2="4" stroke="#8B7355" stroke-width="2"/>
+              <line x1="80" y1="-4" x2="80" y2="4" stroke="#8B7355" stroke-width="2"/>
+              <text x="40" y="-6" text-anchor="middle" font-family="Montserrat" font-size="9" fill="#8B7355">1 km</text>
+            </g>
+
+            <!-- Compass -->
+            <g transform="translate(940, 60)">
+              <circle r="22" fill="rgba(255,255,255,0.8)" stroke="#D4C9A8" stroke-width="1"/>
+              <text x="0" y="-8" text-anchor="middle" font-family="Montserrat" font-size="11" fill="#B9975B" font-weight="700">N</text>
+              <line x1="0" y1="-14" x2="0" y2="4" stroke="#B9975B" stroke-width="2"/>
+              <polygon points="0,-14 -4,0 0,-5 4,0" fill="#B9975B"/>
+            </g>
+          </svg>
+          <div style="position:absolute; bottom:16px; right:16px; background:rgba(255,255,255,0.9); border:1px solid var(--border); padding:10px 16px; border-radius:4px; font-size:0.72rem; color:var(--charcoal-mid); font-weight:600; letter-spacing:0.1em;">
+            ℹ️ Tracé indicatif — carte définitive à venir
+          </div>
+        </div>
+      </div>
+
+      <!-- Elevation Profile -->
+      <div class="elevation-wrapper fade-up stagger-2">
+        <div class="elevation-title">Profil altimétrique de la boucle</div>
+        <div class="elevation-svg-wrap">
+          <svg width="100%" viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="elevGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#B9975B;stop-opacity:0.6"/>
+                <stop offset="100%" style="stop-color:#B9975B;stop-opacity:0.05"/>
+              </linearGradient>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#B9975B"/>
+                <stop offset="50%" style="stop-color:#D4B87A"/>
+                <stop offset="100%" style="stop-color:#B9975B"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Y-axis grid -->
+            <g stroke="#E8E0CF" stroke-width="1" opacity="0.8">
+              <line x1="60" y1="20" x2="980" y2="20"/>
+              <line x1="60" y1="60" x2="980" y2="60"/>
+              <line x1="60" y1="100" x2="980" y2="100"/>
+              <line x1="60" y1="140" x2="980" y2="140"/>
+              <line x1="60" y1="180" x2="980" y2="180"/>
+            </g>
+
+            <!-- Y-axis labels -->
+            <g font-family="Montserrat,sans-serif" font-size="10" fill="#8B7355" text-anchor="end">
+              <text x="52" y="24">307m</text>
+              <text x="52" y="64">296m</text>
+              <text x="52" y="104">285m</text>
+              <text x="52" y="144">273m</text>
+              <text x="52" y="184">261m</text>
+            </g>
+
+            <!-- Elevation area fill — vraies données GPS -->
+            <path d="M 60 180
+              L 60 60.0 C 76 52.6 98 50.1 105 52.9 110 51.9 128 46.3 141 42.7
+              C 157 40.6 174 43.0 189 50.5 199 54.7 213 56.8 227 55.1
+              C 240 52.9 253 44.2 264 36.2 280 26.3 295 20.0 309 21.3
+              C 323 23.9 336 31.1 350 36.6 364 42.0 376 50.4 390 56.3
+              C 403 60.4 415 64.9 428 68.1 440 70.5 453 71.9 466 73.2
+              C 480 73.8 494 73.5 507 72.9 519 72.0 532 71.3 545 71.5
+              C 558 71.9 570 73.4 583 76.5 596 80.0 608 84.1 621 87.9
+              C 634 91.3 647 94.2 660 97.0 671 98.9 683 100.4 695 102.2
+              C 707 104.3 718 107.1 730 110.4 742 113.9 753 118.0 765 123.3
+              C 777 129.0 789 136.4 800 145.3 811 154.5 822 163.2 833 170.1
+              C 844 176.0 856 179.4 867 180.0 878 179.0 892 174.5 906 168.2
+              C 920 161.0 934 150.8 948 139.5 961 128.5 974 118.4 980 112.0
+              L 980 180 Z"
+                  fill="url(#elevGrad)"/>
+
+            <!-- Elevation line -->
+            <path d="M 60 60.0 C 76 52.6 98 50.1 105 52.9 110 51.9 128 46.3 141 42.7
+              C 157 40.6 174 43.0 189 50.5 199 54.7 213 56.8 227 55.1
+              C 240 52.9 253 44.2 264 36.2 280 26.3 295 20.0 309 21.3
+              C 323 23.9 336 31.1 350 36.6 364 42.0 376 50.4 390 56.3
+              C 403 60.4 415 64.9 428 68.1 440 70.5 453 71.9 466 73.2
+              C 480 73.8 494 73.5 507 72.9 519 72.0 532 71.3 545 71.5
+              C 558 71.9 570 73.4 583 76.5 596 80.0 608 84.1 621 87.9
+              C 634 91.3 647 94.2 660 97.0 671 98.9 683 100.4 695 102.2
+              C 707 104.3 718 107.1 730 110.4 742 113.9 753 118.0 765 123.3
+              C 777 129.0 789 136.4 800 145.3 811 154.5 822 163.2 833 170.1
+              C 844 176.0 856 179.4 867 180.0 878 179.0 892 174.5 906 168.2
+              C 920 161.0 934 150.8 948 139.5 961 128.5 974 118.4 980 112.0"
+                  fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Peak marker at ~1.8km (alt max 307m) -->
+            <g transform="translate(295,20)">
+              <line x1="0" y1="0" x2="0" y2="-18" stroke="#B9975B" stroke-width="1.5" stroke-dasharray="3,2"/>
+              <text x="4" y="-8" font-family="Montserrat,sans-serif" font-size="10" fill="#B9975B" font-weight="700">▲ 307m</text>
+            </g>
+
+            <!-- Start marker -->
+            <circle cx="60" cy="60" r="5" fill="#B9975B"/>
+            <text x="68" y="54" font-family="Montserrat,sans-serif" font-size="9" fill="#3A3A3A" font-weight="600">Départ 296m</text>
+
+            <!-- End marker -->
+            <circle cx="980" cy="112" r="5" fill="#B9975B"/>
+            <text x="860" y="106" font-family="Montserrat,sans-serif" font-size="9" fill="#3A3A3A" font-weight="600">Arrivée ~296m</text>
+
+            <!-- X-axis distance labels -->
+            <g font-family="Montserrat,sans-serif" font-size="10" fill="#8B7355" text-anchor="middle">
+              <text x="60" y="200">0 km</text>
+              <text x="193" y="200">1 km</text>
+              <text x="326" y="200">2 km</text>
+              <text x="459" y="200">3 km</text>
+              <text x="592" y="200">4 km</text>
+              <text x="725" y="200">5 km</text>
+              <text x="858" y="200">6 km</text>
+              <text x="980" y="200">7 km</text>
+            </g>
+
+            <!-- D+ indicator -->
+            <g transform="translate(810, 20)">
+              <rect x="0" y="0" width="155" height="38" rx="3" fill="rgba(185,151,91,0.12)" stroke="#B9975B" stroke-width="1"/>
+              <text x="12" y="14" font-family="Montserrat,sans-serif" font-size="9" fill="#8B7355" font-weight="600">DÉNIVELÉ +</text>
+              <text x="12" y="30" font-family="Montserrat,sans-serif" font-size="15" fill="#B9975B" font-weight="800">89 m D+  · 7,02 km</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Course stats -->
+      <div class="course-stats-row">
+        <div class="course-stat fade-up stagger-1">
+          <div class="course-stat-num">7,02<span class="unit"> km</span></div>
+          <div class="course-stat-label">Distance par boucle</div>
+        </div>
+        <div class="course-stat fade-up stagger-2">
+          <div class="course-stat-num">89<span class="unit"> m</span></div>
+          <div class="course-stat-label">Dénivelé positif / boucle</div>
+        </div>
+        <div class="course-stat fade-up stagger-3">
+          <div class="course-stat-num">261–307<span class="unit"> m</span></div>
+          <div class="course-stat-label">Altitude (min–max)</div>
+        </div>
+        <div class="course-stat fade-up stagger-4">
+          <div class="course-stat-num">12<span class="unit"> MAX</span></div>
+          <div class="course-stat-label">Boucles maximum (12H)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       REGLES
+  =================================================== -->
+  <section id="regles">
+    <div class="regles-inner">
+      <div class="fade-up">
+        <div class="section-label">Le règlement</div>
+        <h2 class="section-title">Les <em>règles</em> du Backyard</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="regles-grid">
+
+        <div class="regle-card fade-up stagger-1">
+          <div class="regle-num">01</div>
+          <div class="regle-title">La boucle</div>
+          <div class="regle-text">Chaque heure, une boucle de ~6 km doit être complétée. Les coureurs partent ensemble à chaque top départ horaire depuis la ligne de départ/arrivée.</div>
+        </div>
+
+        <div class="regle-card fade-up stagger-2">
+          <div class="regle-num">02</div>
+          <div class="regle-title">Le temps imparti</div>
+          <div class="regle-text">Vous disposez de <strong style="color:var(--gold-light)">60 minutes</strong> pour boucler chaque tour. Tout coureur ne franchissant pas la ligne avant le top départ suivant est éliminé.</div>
+        </div>
+
+        <div class="regle-card fade-up stagger-3">
+          <div class="regle-num">03</div>
+          <div class="regle-title">L'élimination</div>
+          <div class="regle-text">Un coureur qui ne prend pas le départ d'une boucle ou qui ne la termine pas dans les temps est déclaré éliminé. Il n'y a pas de retour possible.</div>
+        </div>
+
+        <div class="regle-card fade-up stagger-1">
+          <div class="regle-num">04</div>
+          <div class="regle-title">Repos & Ravitaillement</div>
+          <div class="regle-text">Une zone de repos et de ravitaillement est disponible entre chaque boucle pour récupérer, s'hydrater et se préparer au départ suivant.</div>
+        </div>
+
+        <div class="regle-card fade-up stagger-2">
+          <div class="regle-num">05</div>
+          <div class="regle-title">Le dossard</div>
+          <div class="regle-text">Le dossard officiel doit être porté de manière bien visible sur le devant du coureur tout au long de l'épreuve.</div>
+        </div>
+
+        <div class="regle-card fade-up stagger-3">
+          <div class="regle-num">06</div>
+          <div class="regle-title">La 12e boucle : Vitesse</div>
+          <div class="regle-text">L'épreuve est limitée à un maximum de <strong style="color:var(--gold-light)">12 boucles</strong>. La 12e et ultime boucle se dispute en <strong>course de vitesse</strong> : le premier à franchir la ligne d'arrivée est désigné vainqueur !</div>
+        </div>
+
+      </div>
+
+      <!-- Boucle de vitesse box -->
+      <div class="departage-box fade-up">
+        <div class="departage-left">
+          <span class="departage-icon">⚡</span>
+          <div class="departage-badge">Règle décisive</div>
+        </div>
+        <div>
+          <h3 class="departage-title">La 12e Boucle : Boucle de Vitesse</h3>
+          <p class="departage-text">
+            Au départ de la <strong>12e et dernière boucle</strong>, le format change pour désigner le vainqueur : les coureurs encore en lice s'élancent ensemble pour une <strong>boucle de vitesse en confrontation directe</strong>. <strong>Le premier à franchir la ligne d'arrivée est sacré vainqueur</strong> du Backyard de Luxembourg. Les coureurs suivants sont classés selon leur ordre d'arrivée sur cette ultime boucle.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FORMAT 12H
+  =================================================== -->
+  <section id="format">
+    <div class="format-inner">
+      <div class="fade-up">
+        <div class="section-label">Le format</div>
+        <h2 class="section-title">Une épreuve de <em>12 heures</em><br/><span style="font-size:0.7em; color:var(--gold); font-family:'Montserrat',sans-serif; font-weight:700; letter-spacing:0.05em;">De 09h00 à 21h00</span></h2>
+        <div class="gold-line"></div>
+        <p style="color:var(--charcoal-mid); font-size:0.95rem; line-height:1.8; margin-bottom:36px;">
+          Le Backyard de Luxembourg se déroule en journée continue sur une durée totale de <strong>12 heures, de 09h00 à 21h00</strong>. Douze départs horaires consécutifs : les participants gèrent leur effort tour après tour jusqu'à l'ultime boucle de vitesse à 20h00 pour sacrer le vainqueur.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">08:00 (H-1) · Accueil</div>
+            <div class="timeline-event">Accueil & Briefing des participants</div>
+            <div class="timeline-desc">Vérification du matériel, présentation du parcours, consignes de course et retrait des dossards.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">09:00 (H0) · Top Départ</div>
+            <div class="timeline-event">Coup de pistolet — Boucle 1</div>
+            <div class="timeline-desc">Tous les athlètes s'élancent ensemble pour la première boucle de 7 km. Le compte à rebours est lancé.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10:00 à 19:00 · Boucles 2 à 11</div>
+            <div class="timeline-event">Régularité & Élimination horaire</div>
+            <div class="timeline-desc">Chaque heure pile, un nouveau départ est donné. Les coureurs doivent boucler dans les 60 minutes pour rester en course.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">20:00 · Boucle 12</div>
+            <div class="timeline-event">L'Ultime Tour — Boucle de vitesse</div>
+            <div class="timeline-desc">Top départ de la 12e et dernière boucle ! Les survivants s'élancent en confrontation directe : le premier coureur à franchir la ligne d'arrivée remporte l'épreuve.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">21:00 · Fin de course</div>
+            <div class="timeline-event">Arrivée finale, Cérémonie & Podium</div>
+            <div class="timeline-desc">Clôture des 12 heures, remise des prix et remise officielle du chèque solidaire à l'association Hëllef Hëllefen asbl.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clock visual -->
+      <div class="format-visual fade-up stagger-2">
+        <div class="clock-container">
+          <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+            <defs>
+              <linearGradient id="clockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#FAFAF8"/>
+                <stop offset="100%" style="stop-color:#F5EDD8"/>
+              </linearGradient>
+              <linearGradient id="arcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#B9975B"/>
+                <stop offset="100%" style="stop-color:#D4B87A"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Cadran épuré -->
+            <circle cx="150" cy="150" r="142" fill="url(#clockGrad)" stroke="#E8E0CF" stroke-width="1.5"/>
+
+            <!-- Anneau fin de progression (R=118) -->
+            <circle cx="150" cy="150" r="118" fill="none" stroke="#E8E0CF" stroke-width="2.5" opacity="0.6"/>
+            <circle cx="150" cy="150" r="118" fill="none" stroke="url(#arcGrad)" stroke-width="3.5"
+              stroke-dasharray="741.4" stroke-dashoffset="0" stroke-linecap="round"
+              transform="rotate(-90,150,150)" id="progressArc"
+              style="transition: stroke-dashoffset 0.1s linear;"/>
+
+            <!-- 12 repères discrets pour les 12 heures -->
+            <g stroke="#B9975B" stroke-width="1.5" stroke-linecap="round" opacity="0.6">
+              <line x1="150" y1="24" x2="150" y2="34" transform="rotate(0,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="30" transform="rotate(30,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="30" transform="rotate(60,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="34" transform="rotate(90,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="30" transform="rotate(120,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="30" transform="rotate(150,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="34" transform="rotate(180,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="30" transform="rotate(210,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="30" transform="rotate(240,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="34" transform="rotate(270,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="30" transform="rotate(300,150,150)"/>
+              <line x1="150" y1="24" x2="150" y2="30" transform="rotate(330,150,150)"/>
+            </g>
+
+            <!-- Typographie centrale épurée -->
+            <text x="150" y="126" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="9.5" fill="#8B7355" font-weight="700" letter-spacing="2.5">BACKYARD</text>
+
+            <!-- 12H positionné en bas au milieu de l'horloge -->
+            <text x="150" y="246" text-anchor="middle" dominant-baseline="central" font-family="Montserrat, sans-serif" font-size="14" fill="#3A3A3A" font-weight="800" letter-spacing="1.5">12H</text>
+
+            <!-- Aiguille fine et minimaliste -->
+            <g id="raceHand" transform="rotate(0,150,150)">
+              <line x1="150" y1="68" x2="150" y2="150" stroke="#3A3A3A" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="150" y1="150" x2="150" y2="170" stroke="#B9975B" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="150" cy="150" r="5" fill="#B9975B"/>
+              <circle cx="150" cy="150" r="2.5" fill="#3A3A3A"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Info pills -->
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:28px;">
+          <div style="display:flex; align-items:center; gap:14px; padding:14px 20px; background:var(--white); border:1px solid var(--border); border-radius:4px;">
+            <div style="width:12px; height:12px; border-radius:50%; background:var(--gold); flex-shrink:0;"></div>
+            <div>
+              <div style="font-size:0.75rem; font-weight:700; color:var(--charcoal); letter-spacing:0.1em; text-transform:uppercase;">De 09h00 à 21h00 (12 Heures)</div>
+              <div style="font-size:0.8rem; color:var(--charcoal-mid);">12 départs consécutifs donnés à chaque heure pile</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:14px; padding:14px 20px; background:var(--white); border:1px solid var(--border); border-radius:4px;">
+            <div style="width:12px; height:12px; border-radius:50%; background:var(--charcoal); flex-shrink:0;"></div>
+            <div>
+              <div style="font-size:0.75rem; font-weight:700; color:var(--charcoal); letter-spacing:0.1em; text-transform:uppercase;">12 Boucles max · 84,2 km</div>
+              <div style="font-size:0.8rem; color:var(--charcoal-mid);">1 068m D+ total si l'ensemble des 12 boucles est complété</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:14px; padding:14px 20px; background:var(--gold-pale); border:1px solid var(--gold); border-radius:4px;">
+            <div style="width:12px; height:12px; border-radius:50%; background:var(--gold); flex-shrink:0;"></div>
+            <div>
+              <div style="font-size:0.75rem; font-weight:700; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase;">20h00 : Boucle 12 de vitesse</div>
+              <div style="font-size:0.8rem; color:var(--charcoal-mid);">Confrontation directe pour franchir la ligne et désigner le vainqueur à 21h00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       INSCRIPTION / CTA
+  =================================================== -->
+  <section id="inscription">
+    <div class="inscription-inner fade-up">
+      <div class="section-label">Rejoignez l'aventure</div>
+      <h2 class="section-title">Prêt à relever<br/><em>le défi ?</em></h2>
+      <div class="gold-line"></div>
+      <p>
+        Les pré-inscriptions pour la première édition du <strong>Backyard de Luxembourg</strong> sont ouvertes ! Cliquez sur le bouton ci-dessous pour renseigner vos coordonnées et votre pronostic de boucles de 1 à 12.
+      </p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <button class="btn-primary" onclick="openRegisterModal(event)" style="cursor:pointer; border:none;">
+          S'inscrire & faire son pronostic
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        <a href="#course" class="btn-secondary">Découvrir le parcours</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================
+       FOOTER
+  =================================================== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Backyard de Luxembourg" />
+        <p>L'ultra-trail caritatif du Grand-Duché de Luxembourg, organisé au profit de l'asbl Hëllef Hëllefen avec le soutien de la Banque de Luxembourg.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigation</div>
+        <ul>
+          <li><a href="#association">L'Association</a></li>
+          <li><a href="#course">La Boucle</a></li>
+          <li><a href="#regles">Les Règles</a></li>
+          <li><a href="#format">Le Format 12H</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Réseaux & Contact</div>
+        <ul>
+          <li><a href="mailto:contact@backyardluxembourg.lu">contact@backyardluxembourg.lu</a></li>
+          <li><a href="https://www.linkedin.com/showcase/hellef-hellefen/?originalSubdomain=lu" target="_blank" rel="noopener noreferrer">Hëllef Hëllefen (LinkedIn)</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Strava Club</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Backyard de Luxembourg — Tous droits réservés</div>
+      <div>Au profit de <span>Hëllef Hëllefen asbl</span> &bull; Avec le soutien de <span>Banque de Luxembourg</span></div>
+      <div>Fait avec ❤️ au Grand-Duché</div>
+    </div>
+  </footer>
+
+  <!-- ===================================================
+       MODAL OVERLAY / POPUP INSCRIPTION
+  =================================================== -->
+  <div class="modal-backdrop" id="registerModal" onclick="handleBackdropClick(event)">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close" onclick="closeRegisterModal(event)" aria-label="Fermer la fenêtre">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-header">
+        <div class="section-label">Backyard de Luxembourg</div>
+        <h3 class="modal-title" id="modalTitle">Pré-inscription & <em>Pronostic</em></h3>
+        <div class="gold-line" style="margin: 0 auto 16px;"></div>
+        <p class="modal-subtitle">
+          Renseignez vos coordonnées et estimez votre pronostic de boucles pour réserver votre place prioritaire dès l'ouverture des dossards.
+        </p>
+      </div>
+
+      <form id="registrationForm" onsubmit="handleRegistration(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="prenom" class="form-label">Prénom *</label>
+            <input type="text" id="prenom" name="prenom" class="form-input" placeholder="Ex. Marc" required />
+          </div>
+
+          <div class="form-group">
+            <label for="nom" class="form-label">Nom *</label>
+            <input type="text" id="nom" name="nom" class="form-input" placeholder="Ex. Schmit" required />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="email" class="form-label">Adresse Email *</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="votre.email@exemple.lu" required />
+          </div>
+        </div>
+
+        <!-- Curseur interactif de Pronostic de boucles (1 à 12) -->
+        <div class="slider-box">
+          <div class="slider-header">
+            <div class="slider-title">
+              🎯 Votre pronostic de course
+            </div>
+            <div class="slider-badge" id="sliderBadge">
+              Format Marathon & Plus (~42 km)
+            </div>
+          </div>
+
+          <!-- Métriques dynamiques -->
+          <div class="slider-stats-grid">
+            <div class="slider-stat-card">
+              <div class="slider-stat-num" id="displayBoucles">6<span> boucles</span></div>
+              <div class="slider-stat-label">Pronostic visé</div>
+            </div>
+            <div class="slider-stat-card">
+              <div class="slider-stat-num" id="displayKm">42,1<span> km</span></div>
+              <div class="slider-stat-label">Distance totale</div>
+            </div>
+            <div class="slider-stat-card">
+              <div class="slider-stat-num" id="displayDplus">534<span> m D+</span></div>
+              <div class="slider-stat-label">Dénivelé cumulé</div>
+            </div>
+          </div>
+
+          <!-- Curseur de 1 à 12 -->
+          <div class="range-wrap">
+            <input 
+              type="range" 
+              id="bouclesRange" 
+              name="boucles" 
+              min="1" 
+              max="12" 
+              value="6" 
+              step="1" 
+              class="custom-range" 
+              oninput="updatePronostic(this.value)"
+            />
+          </div>
+          <div class="range-markers">
+            <span>1 boucle (7 km)</span>
+            <span>6 boucles (42 km)</span>
+            <span>12 boucles (84 km ⚡)</span>
+          </div>
+        </div>
+
+        <button type="submit" class="form-btn-submit">
+          Valider mon inscription & mon pronostic
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Message de confirmation après envoi -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">🎉</div>
+        <h3 class="success-title">Inscription enregistrée !</h3>
+        <p class="success-msg">
+          Félicitations <strong id="successName" style="color:var(--charcoal);"></strong> ! Votre pronostic de <strong id="successLoops" style="color:var(--gold);"></strong> (<strong id="successKm" style="color:var(--gold);"></strong>) a bien été enregistré. Vous recevrez une notification prioritaire à <strong id="successEmail" style="color:var(--charcoal);"></strong> dès l'ouverture des dossards officiels.
+        </p>
+        <div class="success-recap">
+          <div class="success-recap-item">
+            <strong id="recapLoops">6</strong>
+            <span>Boucles</span>
+          </div>
+          <div class="success-recap-item">
+            <strong id="recapKm">42,1 km</strong>
+            <span>Distance</span>
+          </div>
+          <div class="success-recap-item">
+            <strong id="recapDplus">534 m</strong>
+            <span>Dénivelé +</span>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <button type="button" class="btn-secondary" style="font-size:0.75rem; padding:10px 22px;" onclick="resetForm()">
+            Modifier mon pronostic
+          </button>
+          <button type="button" class="btn-primary" style="font-size:0.75rem; padding:10px 22px; cursor:pointer;" onclick="closeRegisterModal()">
+            Fermer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================
+       JS
+  =================================================== -->
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close on nav link click
+    navLinks.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Intersection Observer - fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── Animation Horloge de Course : cycle des 12 heures de 09h00 à 21h00 ──
+    const raceHand = document.getElementById('raceHand');
+    const progressArc = document.getElementById('progressArc');
+    const arcCircumference = 741.4;
+
+    if (progressArc) {
+      progressArc.style.strokeDasharray = arcCircumference;
+      progressArc.style.strokeDashoffset = '0';
+    }
+
+    let clockStartTime = null;
+    const cycleDuration = 12000; // 12 secondes = 12 heures de course
+
+    function animateRaceClock(timestamp) {
+      if (!clockStartTime) clockStartTime = timestamp;
+      const elapsed = (timestamp - clockStartTime) % cycleDuration;
+      const progress = elapsed / cycleDuration;
+      const degrees = progress * 360;
+
+      if (raceHand) {
+        raceHand.setAttribute('transform', `rotate(${degrees}, 150, 150)`);
+      }
+      if (progressArc) {
+        progressArc.style.strokeDashoffset = `${arcCircumference * (1 - progress)}`;
+      }
+
+      requestAnimationFrame(animateRaceClock);
+    }
+
+    requestAnimationFrame(animateRaceClock);
+
+    // ── Smooth scroll avec offset navbar et easing custom ──
+    function easeInOutQuart(t) {
+      return t < 0.5 ? 8 * t * t * t * t : 1 - Math.pow(-2 * t + 2, 4) / 2;
+    }
+
+    function smoothScrollTo(targetY, duration) {
+      const startY = window.scrollY;
+      const distance = targetY - startY;
+      let startTime = null;
+
+      function step(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeInOutQuart(progress);
+
+        window.scrollTo(0, startY + distance * ease);
+
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#' || href === '#inscription' || this.classList.contains('nav-cta')) {
+          return;
+        }
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+
+        const navHeight = 72;
+        const targetY = target.getBoundingClientRect().top + window.scrollY - navHeight;
+
+        // Durée proportionnelle à la distance (min 600ms, max 1200ms)
+        const distance = Math.abs(targetY - window.scrollY);
+        const duration = Math.min(1200, Math.max(600, distance * 0.4));
+
+        smoothScrollTo(targetY, duration);
+      });
+    });
+
+    // ── Gestion de la Modal Popup d'inscription ──
+    let savedScrollY = 0;
+
+    function openRegisterModal(e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
+      savedScrollY = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0;
+      const modal = document.getElementById('registerModal');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          const prenomInput = document.getElementById('prenom');
+          if (prenomInput) prenomInput.focus();
+        }, 150);
+      }
+    }
+
+    function closeRegisterModal(e) {
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
+      const modal = document.getElementById('registerModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        window.scrollTo(0, savedScrollY);
+      }
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target && e.target.id === 'registerModal') {
+        if (e.preventDefault) e.preventDefault();
+        if (e.stopPropagation) e.stopPropagation();
+        closeRegisterModal(e);
+      }
+    }
+
+    // Fermeture avec la touche Échap
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeRegisterModal(e);
+      }
+    });
+
+    // ── Logique du formulaire d'inscription & Curseur de pronostic ──
+    const KM_PER_LOOP = 7.02;
+    const DPLUS_PER_LOOP = 89;
+
+    function updatePronostic(val) {
+      const loops = parseInt(val, 10);
+      const totalKm = (loops * KM_PER_LOOP).toFixed(1).replace('.', ',');
+      const totalDplus = loops * DPLUS_PER_LOOP;
+
+      const bouclesEl = document.getElementById('displayBoucles');
+      const kmEl = document.getElementById('displayKm');
+      const dplusEl = document.getElementById('displayDplus');
+      const badgeEl = document.getElementById('sliderBadge');
+
+      if (bouclesEl) bouclesEl.innerHTML = `${loops}<span> boucle${loops > 1 ? 's' : ''}</span>`;
+      if (kmEl) kmEl.innerHTML = `${totalKm}<span> km</span>`;
+      if (dplusEl) dplusEl.innerHTML = `${totalDplus}<span> m D+</span>`;
+
+      if (badgeEl) {
+        if (loops <= 2) {
+          badgeEl.textContent = 'Découverte (~7–14 km)';
+        } else if (loops <= 5) {
+          badgeEl.textContent = 'Format Semi-Trail (~21–35 km)';
+        } else if (loops <= 8) {
+          badgeEl.textContent = 'Format Marathon & Plus (~42–56 km)';
+        } else if (loops <= 11) {
+          badgeEl.textContent = 'Ultra Défi (~63–77 km)';
+        } else {
+          badgeEl.textContent = 'Finisher Ultime 12H (84,2 km ⚡)';
+        }
+      }
+    }
+
+    function handleRegistration(e) {
+      e.preventDefault();
+      const prenom = document.getElementById('prenom').value.trim();
+      const nom = document.getElementById('nom').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const loops = parseInt(document.getElementById('bouclesRange').value, 10);
+      const totalKm = (loops * KM_PER_LOOP).toFixed(1).replace('.', ',');
+      const totalDplus = loops * DPLUS_PER_LOOP;
+
+      document.getElementById('successName').textContent = `${prenom} ${nom}`;
+      document.getElementById('successEmail').textContent = email;
+      document.getElementById('successLoops').textContent = `${loops} boucle${loops > 1 ? 's' : ''}`;
+      document.getElementById('successKm').textContent = `${totalKm} km`;
+      document.getElementById('recapLoops').textContent = loops;
+      document.getElementById('recapKm').textContent = `${totalKm} km`;
+      document.getElementById('recapDplus').textContent = `${totalDplus} m`;
+
+      document.getElementById('registrationForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+
+      // Remonter le scroll de la popup
+      const dialog = document.querySelector('.modal-dialog');
+      if (dialog) {
+        dialog.scrollTop = 0;
+      }
+    }
+
+    function resetForm() {
+      document.getElementById('formSuccess').style.display = 'none';
+      document.getElementById('registrationForm').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
